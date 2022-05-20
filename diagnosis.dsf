@@ -1,0 +1,584 @@
+scenario Main;
+  / это комментарий /
+  send СоздатьГлавнуюФорму;
+end;
+
+subscenario ВыводПриглашения;
+  send 'set Caption to $'О программе...$'' to AboutBox;
+  send 'set PictureFile to $'about.bmp$'' to AboutBox;
+  send 'set ProgramName to [$'Пример$', $'(версия 1.0)$']' to AboutBox;
+  send concat('set AboutText to ',
+               text('  Простой пример экспертной системы. Создан на основе оболочки ЭС.',
+                    '',
+                    'Разработчик:',
+                    '  - Архипов А.С.',
+                    '',
+                    'Руководитель проекта:',
+                    '  - Григорьев А.А.',
+                    '',
+                    'МИФИ, Лаборатория "Системы Искусственного Интеллекта", 2022')) to AboutBox;
+  send 'activate' to AboutBox;
+end;
+
+subscenario Выход;
+  stop;
+end;
+
+subscenario ОчисткаФактов;
+  set #ОБЪЕКТ1.АТРИБУТ1# to '';
+  set #ОБЪЕКТ1.АТРИБУТ2# to '';
+  set #ОБЪЕКТ1.АТРИБУТ3# to '';
+  set #ОБЪЕКТ1.АТРИБУТ4# to '';
+  set #ОБЪЕКТ1.АТРИБУТ5# to '';
+  set #ОБЪЕКТ1.АТРИБУТ6# to '';
+  set #ОБЪЕКТ1.АТРИБУТ7# to '';
+  set #ОБЪЕКТ1.АТРИБУТ8# to '';
+  set #ОБЪЕКТ1.АТРИБУТ9# to '';
+  set #ОБЪЕКТ1.АТРИБУТ10# to '';
+  set #ОБЪЕКТ1.АТРИБУТ11# to '';
+  set #ОБЪЕКТ1.АТРИБУТ12# to '';
+  set #ОБЪЕКТ1.АТРИБУТ13# to '';
+  set #ОБЪЕКТ1.АТРИБУТ14# to '';
+  set #ОБЪЕКТ1.АТРИБУТ15# to '';
+  set #ОБЪЕКТ1.АТРИБУТ16# to '';
+  set #ОБЪЕКТ1.АТРИБУТ17# to '';
+  set #ОБЪЕКТ1.АТРИБУТ18# to '';
+  set #ОБЪЕКТ1.АТРИБУТ19# to '';
+  set #ОБЪЕКТ1.АТРИБУТ20# to '';
+  set #ОБЪЕКТ1.АТРИБУТ21# to '';
+  set #ОБЪЕКТ1.АТРИБУТ22# to '';
+  set #ОБЪЕКТ1.АТРИБУТ23# to '';
+  set #ОБЪЕКТ1.АТРИБУТ24# to '';
+  set #ОБЪЕКТ1.АТРИБУТ25# to '';
+  set #ОБЪЕКТ1.АТРИБУТ26# to '';
+  set #ОБЪЕКТ1.АТРИБУТ27# to '';
+  set #ОБЪЕКТ1.АТРИБУТ28# to '';
+  set #ОБЪЕКТ1.АТРИБУТ29# to '';
+  set #ОБЪЕКТ1.АТРИБУТ30# to '';
+  set #ОБЪЕКТ1.АТРИБУТ31# to '';
+  set #ОБЪЕКТ1.АТРИБУТ32# to '';
+  set #ОБЪЕКТ1.АТРИБУТ33# to '';
+  set #ОБЪЕКТ1.АТРИБУТ34# to '';
+  set #ОБЪЕКТ1.АТРИБУТ35# to '';
+  set #ОБЪЕКТ1.АТРИБУТ36# to '';
+  set #ОБЪЕКТ1.АТРИБУТ37# to '';
+  set #ОБЪЕКТ1.АТРИБУТ38# to '';
+  set #ОБЪЕКТ1.АТРИБУТ39# to '';
+  set #ОБЪЕКТ1.АТРИБУТ40# to '';
+  set #ОБЪЕКТ1.АТРИБУТ41# to '';
+  send '<message ProcName=$'TKnowledgeBase.ClearWorkMemory$'></message>' to ESKernel;
+end;
+
+subscenario ВыводДиагноза;
+  send 'set Caption to $'Значения атрибутов$'' to Informer;
+
+
+  send concat('output ', string(concat('Простуда = "', #ОБЪЕКТ1.АТРИБУТ34#, '"')),
+              'as String on Left') to Informer;
+
+  send concat('output ', string(concat('Бронхиальная астма = "', #ОБЪЕКТ1.АТРИБУТ35#, '"')),
+              'as String on Left') to Informer;
+
+  send concat('output ', string(concat('Аллергический бронхит = "', #ОБЪЕКТ1.АТРИБУТ36#, '"')),
+              'as String on Left') to Informer;
+
+  send concat('output ', string(concat('Острый бронхит = "', #ОБЪЕКТ1.АТРИБУТ37#, '"')),
+              'as String on Left') to Informer;
+
+  send concat('output ', string(concat('Инфекционный бронхит = "', #ОБЪЕКТ1.АТРИБУТ38#, '"')),
+              'as String on Left') to Informer;
+
+  send concat('output ', string(concat('Легочная гипертензия = "', #ОБЪЕКТ1.АТРИБУТ39#, '"')),
+              'as String on Left') to Informer;
+
+  send concat('output ', string(concat('Хронический бронхит = "', #ОБЪЕКТ1.АТРИБУТ40#, '"')),
+              'as String on Left') to Informer;
+
+  send concat('output ', string(concat('Пневмония = "', #ОБЪЕКТ1.АТРИБУТ41#, '"')),
+              'as String on Left') to Informer;
+              
+  send 'activate' to Informer;
+
+end;
+
+
+subscenario НачатьСеанс1;
+
+  send 'set Caption to $'Содержание сеанса 1$'' to Informer;
+
+  send concat('output ', text(
+			'В этом сеансе опрашивается состояние пациента,',
+			'а затем запускается решатель.',
+			'На основании собранных данных решатель выполняет ',
+			'прямой вывод',
+			'Отчет выдается в виде сообщения пользователю.'),
+              'as String on Left') to Informer;
+
+  send 'activate' to Informer;
+
+  execute ОчисткаФактов;
+  
+  send УзнатьАтрибут1;
+  send УзнатьАтрибут2;
+  send УзнатьАтрибут3;
+  send УзнатьАтрибут4;
+  send УзнатьАтрибут5;
+  send УзнатьАтрибут6;
+  send УзнатьАтрибут7;
+  send УзнатьАтрибут8;
+  send УзнатьАтрибут9;
+  send УзнатьАтрибут10;
+  send УзнатьАтрибут11;
+  send УзнатьАтрибут12;
+  send УзнатьАтрибут13;
+  send УзнатьАтрибут14;
+  send УзнатьАтрибут15;
+  send УзнатьАтрибут16;
+  send УзнатьАтрибут17;
+  send УзнатьАтрибут18;  
+
+  execute ЗапускРешателяПрямой;
+
+  execute ВыводДиагноза; 
+end;
+
+
+/ ----------------------------- Инструменты ------------------------------ /
+
+subscenario ЗапускРешателяПрямой;
+  send '<message ProcName="TWorkMemoryConfigurator"><setup Style="forward"/></message>' to ESKernel;
+  send '<message ProcName="TSolve"/>' to ESKernel;  
+end;
+
+subscenario ЗапускРешателяОбратный;
+  send '<message ProcName="TWorkMemoryConfigurator"><setup Style="backward"/></message>' to ESKernel;
+  send '<message ProcName="AddGoal"><goal AttrPath="ОБЪЕКТ1.АТРИБУТ1" /></message>' to ESKernel;
+  send '<message ProcName="TSolve"/>' to ESKernel;  
+end;
+
+subscenario ЗапускРешателяСмешанный;
+  send '<message ProcName="TWorkMemoryConfigurator"><setup Style="mixed"/></message>' to ESKernel;
+  send '<message ProcName="AddGoal"><goal AttrPath="ОБЪЕКТ1.АТРИБУТ1" /></message>' to ESKernel;
+  send '<message ProcName="TSolve"/>' to ESKernel;  
+end;
+
+subscenario ЗапускОтладчика;     
+  send '<message ProcName="Debug"/>' to ESKernel;  
+end;
+
+subscenario ЗапускРедактора;
+  send '<message ProcName="Run"></message>' to KBEditor;
+end;
+
+subscenario ЗапускВерификатора;
+  send '<message ProcName="Run"></message>' to KBVerifier;
+end;
+
+subscenario ЗапускРедактораСценария;
+  send '<message ProcName="Run"></message>' to DSDLEditor;
+end;
+
+subscenario ПоказатьОбъяснения;
+  send '<message ProcName="TKnowledgeBase.ShowTrassa"></message>' to ESKernel;
+end;
+
+subscenario ЗапускОбъяснителя;
+  send '<message ProcName="Run"></message>' to Explainer;
+end;
+
+subscenario ПоказатьКласснуюДоску;
+  send '<message ProcName="Run"><func name="ShowBB" module="report" /></message>' to Scripter;
+end;
+
+subscenario ЗапускДизайнераОбъяснений;
+  send '<message ProcName="Design"></message>' to Explainer;
+end;
+
+subscenario ЗапускРедактораОбъяснений;
+
+    send concat('<message ProcName="Run">',
+	      '  <func name="OpenXML" module="report">',
+	      '    <param type="string">exp.xml</param>',
+	      '  </func>', 
+   	      '</message>') to Scripter;
+
+end;
+
+subscenario ЗапускКонфигуратора;
+    send concat('<message ProcName="Run">',
+	      '  <func name="OpenXML" module="report">',
+	      '    <param type="string">config.xml</param>',
+	      '  </func>', 
+   	      '</message>') to Scripter;
+
+end;
+
+subscenario СгенерироватьОбъяснения;
+  send '<message ProcName="Generate"><KBFileName>diagnosis.kbs</KBFileName><ExplFileName>genexp.xml</ExplFileName></message>' to Explainer;
+
+    send concat('<message ProcName="Run">',
+	      '  <func name="OpenXML" module="report">',
+	      '    <param type="string">genexp.xml</param>',
+	      '  </func>', 
+   	      '</message>') to Scripter;
+
+end;
+
+
+subscenario ТекстовыйРедакторБЗ;
+
+    send concat('<message ProcName="Run">',
+	      '  <func name="OpenEM" module="report">',
+	      '    <param type="string">diagnosis.kbs</param>',
+	      '  </func>', 
+   	      '</message>') to Scripter;
+
+end;
+
+subscenario ТекстовыйРедакторСД;
+
+    send concat('<message ProcName="Run">',
+	      '  <func name="OpenEM" module="report">',
+	      '    <param type="string">diagnosis.dsf</param>',
+	      '  </func>', 
+   	      '</message>') to Scripter;
+
+end;
+
+/ --------------------------------------  Сообщения -------------------------------------- /
+
+message СоздатьГлавнуюФорму to Alternativer;
+  line 'set Caption to $'Система "Диагноз", МИФИ 2007$'';
+  line 'set PictureFile to $'leg.bmp$'';
+
+  line 'on $'Файл/Выход$' execute Выход';
+
+  line 'on $'Консультация/Начать сеанс (Прямой вывод)$' execute НачатьСеанс1';
+  
+  line 'on $'Инструменты/Интеллектуальный редактор базы знаний...$' execute ЗапускРедактора';
+  line 'on $'Инструменты/Специализированный редактор сценариев диалога...$' execute ЗапускРедактораСценария';  
+  line 'on $'Инструменты/Редактор объяснений...$' execute ЗапускРедактораОбъяснений';
+  line 'on $'Инструменты/Сгенерировать записанные объяснения...$' execute СгенерироватьОбъяснения';
+  line 'on $'Инструменты/Дизайнер объяснений...$' execute ЗапускДизайнераОбъяснений';
+  line 'on $'Инструменты/Конфигурация прототипа...$' execute ЗапускКонфигуратора';
+  line 'on $'Инструменты/База знаний на ЯПЗ...$' execute ТекстовыйРедакторБЗ';
+  line 'on $'Инструменты/Сценарий диалога...$' execute ТекстовыйРедакторСД';
+  
+  line 'on $'Отладка/Режим отладки...$' execute ЗапускОтладчика';
+  line 'on $'Отладка/Просмотр трассы вывода$' execute ПоказатьОбъяснения';
+  line 'on $'Отладка/Просмотр классной доски...$' execute ПоказатьКласснуюДоску';
+  line 'on $'Отладка/Вызов отчета$' execute СформироватьОтчетExcel';
+
+  line 'on $'Помощь/О программе...$' execute ВыводПриглашения';
+  line 'activate';
+end;
+
+
+/ ------------------------------------ Узнаем симптомы ------------------------------------ /
+
+message УзнатьАтрибут1 to Asker about #ОБЪЕКТ1.АТРИБУТ1#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом1. Есть хрипы?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ1'),
+              ' as Variant from ',
+              text('сильный', 'незначительный', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут2 to Asker about #ОБЪЕКТ1.АТРИБУТ2#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом2. Есть одышка?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ2'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут3 to Asker about #ОБЪЕКТ1.АТРИБУТ3#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом3. Есть слабость?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ3'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут4 to Asker about #ОБЪЕКТ1.АТРИБУТ4#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом4. Температура повышена?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ4'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут5 to Asker about #ОБЪЕКТ1.АТРИБУТ5#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом5. Возраст больше 15 лет?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ5'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут6 to Asker about #ОБЪЕКТ1.АТРИБУТ6#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом6. Есть тошнота?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ6'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут7 to Asker about #ОБЪЕКТ1.АТРИБУТ7#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом7. Желтая мокрота?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ7'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут8 to Asker about #ОБЪЕКТ1.АТРИБУТ8#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом8. Мокрый кашель?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ8'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут9 to Asker about #ОБЪЕКТ1.АТРИБУТ9#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом9. Есть Есть вздутие грудной клетки?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ9'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут10 to Asker about #ОБЪЕКТ1.АТРИБУТ10#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом10. Есть боль в горле?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ10'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут11 to Asker about #ОБЪЕКТ1.АТРИБУТ11#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом11. Мокрота бесцветная?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ11'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут12 to Asker about #ОБЪЕКТ1.АТРИБУТ12#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом12. Кашель сухой?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ12'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут13 to Asker about #ОБЪЕКТ1.АТРИБУТ13#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом13. Есть головокружение?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ13'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут14 to Asker about #ОБЪЕКТ1.АТРИБУТ14#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом14. Пульс учащен?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ14'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут15 to Asker about #ОБЪЕКТ1.АТРИБУТ15#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом15. Наблюдается отек тела?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ15'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут16 to Asker about #ОБЪЕКТ1.АТРИБУТ16#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом16. Была перенесена инфекция до момента осмотра?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ16'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут17 to Asker about #ОБЪЕКТ1.АТРИБУТ17#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом17. Симптомы наблюдаются больше недели?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ17'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
+message УзнатьАтрибут18 to Asker about #ОБЪЕКТ1.АТРИБУТ18#;
+  line 'set Caption to $'Выявление симптомов$'';
+
+  line concat('output ',
+              text('Симптом18. Есть боль в грудной клетке?'),
+              ' as Question');
+
+  line concat('input ',
+              string(''),
+              ' to ',
+              name('ОБЪЕКТ1.АТРИБУТ18'),
+              ' as Variant from ',
+              text('да', 'нет'));
+
+  line 'activate';
+end;
+
